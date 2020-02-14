@@ -15,11 +15,11 @@ transform = transforms.Compose(
     [transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))])
 
-trainset = torchvision.datasets.FashionMNIST('./data/MNIST',
+trainset = torchvision.datasets.FashionMNIST('demo/data/MNIST',
     download=True,
     train=True,
     transform=transform)
-testset = torchvision.datasets.FashionMNIST('./data/MNIST',
+testset = torchvision.datasets.FashionMNIST('demo/data/MNIST',
     download=True,
     train=False,
     transform=transform)
@@ -65,7 +65,7 @@ net = Net()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
-writer = SummaryWriter('runs/fashion_mnist_experiment_1')
+writer = SummaryWriter('demo/runs/fashion_mnist_experiment_1')
 
 dataiter = iter(trainloader)
 images, labels = next(dataiter)
