@@ -12,11 +12,11 @@ transform = transforms.Compose(
     [transforms.ToTensor()])
 batch_size = 64
 
-trainset = torchvision.datasets.MNIST('demo/data/mnistd',
+trainset = torchvision.datasets.MNIST('data/mnistd',
     download=True,
     train=True,
     transform=transform)
-testset = torchvision.datasets.MNIST('demo/data/mnistd',
+testset = torchvision.datasets.MNIST('data/mnistd',
     download=True,
     train=False,
     transform=transform)
@@ -26,7 +26,7 @@ trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
 testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
                                         shuffle=True, num_workers=0)
 
-writer = SummaryWriter('demo/runs/mnist')
+writer = SummaryWriter('runs/mnist')
 """
 # 查看图片
 dataiter = iter(trainloader)
